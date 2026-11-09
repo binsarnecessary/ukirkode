@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
-import LivePreview from "@/components/LivePreview";
 
 type Item = {
   slug: string;
@@ -25,7 +24,23 @@ function Card({
         className="relative block cursor-pointer border-b border-line text-left"
         aria-label={`Lihat preview ${p.title}`}
       >
-        <LivePreview src={p.url} title={p.title} />
+        {/* screenshot statis; demo live baru dimuat di modal saat diklik */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream">
+          {/* cadangan kalau screenshot belum dibuat */}
+          <span className="absolute inset-0 flex items-center justify-center font-heading text-2xl text-stone">
+            {p.title}
+          </span>
+          <img
+            onError={(e) => (e.currentTarget.style.display = "none")}
+            src={`/portfolio/${p.slug}.webp`}
+            alt={`Tampilan ${p.title}`}
+            width={960}
+            height={600}
+            loading="lazy"
+            decoding="async"
+            className="relative h-full w-full object-cover object-top"
+          />
+        </div>
         <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-primary/0 transition-colors group-hover:bg-primary/10">
           <span className="translate-y-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold opacity-0 shadow-lg transition-all group-hover:translate-y-0 group-hover:opacity-100">
             Lihat preview →
