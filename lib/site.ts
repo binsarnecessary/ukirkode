@@ -4,7 +4,7 @@ export const site = {
   subTagline: "Website • Automation • Digital Solution",
   description:
     "Studio digital yang membantu bisnis memiliki website profesional, sistem digital, dan AI Automation. Website cepat, design premium, harga transparan.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://studio-website-snowy-ten.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ukirkode.vercel.app",
   email: "binsar16febuary@gmail.com",
   whatsapp: "6287830377139",
   socials: {
